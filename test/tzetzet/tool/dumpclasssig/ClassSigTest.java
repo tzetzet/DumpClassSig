@@ -48,7 +48,7 @@ public class ClassSigTest {
             Logger.getLogger(ClassSigTest.class.getName()).log(Level.FINE, null, e);
         }
 
-        assertEquals(getClass().getPackage().getName() + ".DataSample1", classSig.getThisClassName());
+        assertEquals(getClass().getPackage().getName() + "." + classname, classSig.getThisClassName());
         assertTrue(classSig.isPublicOrProtected());
 
         StringWriter sw = new StringWriter();
@@ -65,6 +65,43 @@ public class ClassSigTest {
             "  public void publicMethod2(int);\r\n" +
             "  protected void protedtedMetho1();\r\n" +
             "}\r\n";
+        String actual = sw.getBuffer().toString();
+        assertEquals(expected.length(), actual.length());
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testDataSample2() {
+        String classname = "DataSample2";
+        String filename = classname + ".class";
+        InputStream is = getClass().getResourceAsStream(filename);
+        ClassSig classSig = new ClassSig(is, filename);
+
+        // 入力ストリームが閉じられていることを確認
+        try {
+            is.read();
+            fail();
+        } catch (IOException e) {
+            Logger.getLogger(ClassSigTest.class.getName()).log(Level.FINE, null, e);
+        }
+
+        assertEquals(getClass().getPackage().getName() + "." + classname, classSig.getThisClassName());
+        assertTrue(classSig.isPublicOrProtected());
+
+        StringWriter sw = new StringWriter();
+        PrintWriter writer = new PrintWriter(sw);
+        classSig.printSig(writer);
+
+        String expected =
+            "public class tzetzet.tool.dumpclasssig.DataSample2\r\n" +
+            "  extends java.lang.Object\r\n" +
+            "{\r\n" +
+            "  public void <init>();\r\n" +
+            "  public java.lang.String getPublicString();\r\n" +
+            "  protected int getPrivateInt();\r\n" +
+            "  public java.lang.String publicString;\r\n" +
+            "}\r\n";
+
         String actual = sw.getBuffer().toString();
         assertEquals(expected.length(), actual.length());
         assertEquals(expected, actual);
