@@ -4,6 +4,7 @@
 package tzetzet.tool.dumpclasssig;
 
 import java.io.File;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.List;
 import java.util.ArrayList;
@@ -26,6 +27,10 @@ public class ClassSigsPool {
 
     public void addClassFile(ZipFile zipfile, ZipEntry zipentry) {
         addClassSig(new ClassSig(zipfile, zipentry));
+    }
+
+    public void addClassFile(InputStream is, String filename) {
+        addClassSig(new ClassSig(is, filename));
     }
 
     public void printTree(PrintWriter writer, String[] pkgprefixes) {

@@ -33,6 +33,26 @@ public class ClassSigTest {
     public void tearDown() {
     }
 
+    static final String EXPECTED1 =
+        "public class tzetzet.tool.dumpclasssig.DataSample1\r\n" +
+        "  extends java.lang.Object\r\n" +
+        "{\r\n" +
+        "  public void <init>();\r\n" +
+        "  public double publicMethod3(float, long);\r\n" +
+        "  public int publicMethod1();\r\n" +
+        "  public void publicMethod2(int);\r\n" +
+        "  protected void protedtedMetho1();\r\n" +
+        "}\r\n";
+    static final String EXPECTED2 =
+        "public class tzetzet.tool.dumpclasssig.DataSample2\r\n" +
+        "  extends java.lang.Object\r\n" +
+        "{\r\n" +
+        "  public void <init>();\r\n" +
+        "  public java.lang.String getPublicString();\r\n" +
+        "  protected int getPrivateInt();\r\n" +
+        "  public java.lang.String publicString;\r\n" +
+        "}\r\n";
+
     @Test
     public void testDataSample1() {
         String classname = "DataSample1";
@@ -55,16 +75,7 @@ public class ClassSigTest {
         PrintWriter writer = new PrintWriter(sw);
         classSig.printSig(writer);
 
-        String expected =
-            "public class tzetzet.tool.dumpclasssig.DataSample1\r\n" +
-            "  extends java.lang.Object\r\n" +
-            "{\r\n" +
-            "  public void <init>();\r\n" +
-            "  public double publicMethod3(float, long);\r\n" +
-            "  public int publicMethod1();\r\n" +
-            "  public void publicMethod2(int);\r\n" +
-            "  protected void protedtedMetho1();\r\n" +
-            "}\r\n";
+        String expected = EXPECTED1;
         String actual = sw.getBuffer().toString();
         assertEquals(expected.length(), actual.length());
         assertEquals(expected, actual);
@@ -92,16 +103,7 @@ public class ClassSigTest {
         PrintWriter writer = new PrintWriter(sw);
         classSig.printSig(writer);
 
-        String expected =
-            "public class tzetzet.tool.dumpclasssig.DataSample2\r\n" +
-            "  extends java.lang.Object\r\n" +
-            "{\r\n" +
-            "  public void <init>();\r\n" +
-            "  public java.lang.String getPublicString();\r\n" +
-            "  protected int getPrivateInt();\r\n" +
-            "  public java.lang.String publicString;\r\n" +
-            "}\r\n";
-
+        String expected = EXPECTED2;
         String actual = sw.getBuffer().toString();
         assertEquals(expected.length(), actual.length());
         assertEquals(expected, actual);
