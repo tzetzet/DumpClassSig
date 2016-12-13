@@ -25,9 +25,10 @@ import org.apache.bcel.generic.Type;
 import org.apache.bcel.generic.BasicType;
 
 /**
- * クラスファイルのシグネチャおよびコンスタントプールを解析する機能を提供します.
+ * クラスファイルのシグネチャ(およびコンスタントプール)を解析する機能を提供します.
  *
- * 解析した情報は PrintWriter に書き込むことができます.
+ * 解析したシグネチャとその他情報は PrintWriter に書き込むことができます.
+ * シグネチャの書き込み並び順は一意で、オリジナルの並び順に影響されません.
  */
 public class ClassSig implements Comparable<ClassSig> {
     // パース済みの対象クラス情報
