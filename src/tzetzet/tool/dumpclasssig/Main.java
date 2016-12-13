@@ -37,7 +37,7 @@ public class Main {
     public static void main(String[] args) throws IOException, ParseException {
         Options options = new Options();
         options.addOption(Option.builder("cp").longOpt("classpath").argName("pathlist").hasArg().desc("classpath to search classes").build());
-        options.addOption(Option.builder("ppx").longOpt("pkgprefix").argName("pkglist").hasArg().desc("prefixes of headlined package names").build());
+        options.addOption(Option.builder("ppx").longOpt("pkgprefix").argName("pkglist").hasArg().desc("regexp prefixes of headlined package names").build());
 
         if (args.length == 0) {
             new HelpFormatter().printHelp("dumpclasssig <options> <classnames>", options);

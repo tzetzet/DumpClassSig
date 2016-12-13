@@ -152,4 +152,7 @@ Command options
 
     usage: dumpclasssig <options> <classnames>
      -cp,--classpath <pathlist>   classpath to search classes
-     -ppx,--pkgprefix <pkglist>   prefixes of headlined package names
+     -ppx,--pkgprefix <pkglist>   regexp prefixes of headlined package names
+
+    an example (";" is the separator for Windows OS):
+     dumpclasssig -cp android.jar\;commons-io-1.3.1.jar -ppx android\\.webkit\\.\;org\\.json\\.
