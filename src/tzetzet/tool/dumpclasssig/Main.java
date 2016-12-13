@@ -60,6 +60,17 @@ public class Main {
             pkgprefixes = pkglist.split(System.getProperty("path.separator"));
         }
 
+        String[] classnames = parsedCommandline.getArgs();
+
+        StringWriter sw = new StringWriter();
+        PrintWriter writer = new PrintWriter(sw);
+
+        printClassSigs(writer, givensearchpaths, pkgprefixes, classnames);
+
+        System.out.print(sw.getBuffer());
+    }
+
+    static void printClassSigs(PrintWriter writer, String[] givensearchpaths, String[] pkgprefixes, String[] classnames) throws IOException {
         List<String> printableSearchPaths = new ArrayList<>();
         ClassSigsPool classSigsPool = new ClassSigsPool();
 
@@ -76,12 +87,7 @@ public class Main {
             poolClassesFromFile(classSigsPool, fileent);
         }
 
-        String[] classnames = parsedCommandline.getArgs();
-
-        StringWriter sw = new StringWriter();
-        PrintWriter writer = new PrintWriter(sw);
-
-        if (classnames.length > 0) {
+        if (classnames != null && classnames.length > 0) {
             for (String classname : classnames) {
                 classSigsPool.printConstantpool(writer, classname);
                 writer.println();
@@ -96,9 +102,7 @@ public class Main {
             writer.println();
             classSigsPool.printSigs(writer, pkgprefixes);
         }
-
-        System.out.print(sw.getBuffer());
-        System.out.println();
+        writer.println();
     }
 
     private static void poolClassesFromFile(ClassSigsPool classSigsPool, File fileent) {

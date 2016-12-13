@@ -1,0 +1,987 @@
+=== Search Paths ===
+ android.jar
+
+  |-+/
+     |-+android
+        |-+webkit
+           |--ClientCertRequest
+           |--ConsoleMessage
+           |--ConsoleMessage$MessageLevel
+           |--CookieManager
+           |--CookieSyncManager
+           |--DateSorter
+           |--DownloadListener
+           |--GeolocationPermissions
+           |--GeolocationPermissions$Callback
+           |--HttpAuthHandler
+           |--JavascriptInterface
+           |--JsPromptResult
+           |--JsResult
+           |--MimeTypeMap
+           |--PermissionRequest
+           |--PluginStub
+           |--ServiceWorkerClient
+           |--ServiceWorkerController
+           |--ServiceWorkerWebSettings
+           |--SslErrorHandler
+           |--URLUtil
+           |--ValueCallback
+           |--WebBackForwardList
+           |--WebChromeClient
+           |--WebChromeClient$CustomViewCallback
+           |--WebChromeClient$FileChooserParams
+           |--WebHistoryItem
+           |--WebIconDatabase
+           |--WebIconDatabase$IconListener
+           |--WebMessage
+           |--WebMessagePort
+           |--WebMessagePort$WebMessageCallback
+           |--WebResourceError
+           |--WebResourceRequest
+           |--WebResourceResponse
+           |--WebSettings
+           |--WebSettings$LayoutAlgorithm
+           |--WebSettings$PluginState
+           |--WebSettings$RenderPriority
+           |--WebSettings$TextSize
+           |--WebSettings$ZoomDensity
+           |--WebStorage
+           |--WebStorage$Origin
+           |--WebStorage$QuotaUpdater
+           |--WebView
+           |--WebView$FindListener
+           |--WebView$HitTestResult
+           |--WebView$PictureListener
+           |--WebView$VisualStateCallback
+           |--WebView$WebViewTransport
+           |--WebViewClient
+           |--WebViewDatabase
+           |--WebViewFragment
+     |-+org
+        |-+json
+           |--JSONArray
+           |--JSONException
+           |--JSONObject
+           |--JSONStringer
+           |--JSONTokener
+
+public abstract class android.webkit.ClientCertRequest
+  extends java.lang.Object
+{
+  public void <init>();
+  public abstract int getPort();
+  public abstract void cancel();
+  public abstract void ignore();
+  public abstract void proceed(java.security.PrivateKey, java.security.cert.X509Certificate[]);
+  public abstract java.lang.String getHost();
+  public abstract java.lang.String[] getKeyTypes();
+  public abstract java.security.Principal[] getPrincipals();
+}
+public class android.webkit.ConsoleMessage
+  extends java.lang.Object
+{
+  public void <init>(java.lang.String, java.lang.String, int, android.webkit.ConsoleMessage$MessageLevel);
+  public int lineNumber();
+  public android.webkit.ConsoleMessage$MessageLevel messageLevel();
+  public java.lang.String message();
+  public java.lang.String sourceId();
+}
+public final class android.webkit.ConsoleMessage$MessageLevel
+  extends java.lang.Enum
+{
+  public static android.webkit.ConsoleMessage$MessageLevel valueOf(java.lang.String);
+  public static android.webkit.ConsoleMessage$MessageLevel[] values();
+  public static final android.webkit.ConsoleMessage$MessageLevel DEBUG;
+  public static final android.webkit.ConsoleMessage$MessageLevel ERROR;
+  public static final android.webkit.ConsoleMessage$MessageLevel LOG;
+  public static final android.webkit.ConsoleMessage$MessageLevel TIP;
+  public static final android.webkit.ConsoleMessage$MessageLevel WARNING;
+}
+public abstract class android.webkit.CookieManager
+  extends java.lang.Object
+{
+  public static boolean allowFileSchemeCookies();
+  public static void setAcceptFileSchemeCookies(boolean);
+  public static android.webkit.CookieManager getInstance();
+  public void <init>();
+  public abstract boolean acceptCookie();
+  public abstract boolean acceptThirdPartyCookies(android.webkit.WebView);
+  public abstract boolean hasCookies();
+  public abstract void flush();
+  public abstract void removeAllCookie();
+  public abstract void removeAllCookies(android.webkit.ValueCallback);
+  public abstract void removeExpiredCookie();
+  public abstract void removeSessionCookie();
+  public abstract void removeSessionCookies(android.webkit.ValueCallback);
+  public abstract void setAcceptCookie(boolean);
+  public abstract void setAcceptThirdPartyCookies(android.webkit.WebView, boolean);
+  public abstract void setCookie(java.lang.String, java.lang.String);
+  public abstract void setCookie(java.lang.String, java.lang.String, android.webkit.ValueCallback);
+  public abstract java.lang.String getCookie(java.lang.String);
+  protected java.lang.Object clone()  throws java.lang.CloneNotSupportedException;
+}
+public final class android.webkit.CookieSyncManager
+  extends android.webkit.WebSyncManager
+{
+  public static android.webkit.CookieSyncManager createInstance(android.content.Context);
+  public static android.webkit.CookieSyncManager getInstance();
+  public void resetSync();
+  public void run();
+  public void startSync();
+  public void stopSync();
+  public void sync();
+  protected void syncFromRamToFlash();
+  protected static final java.lang.String LOGTAG;
+  protected android.os.Handler mHandler;
+  protected android.webkit.WebViewDatabase mDataBase;
+}
+public class android.webkit.DateSorter
+  extends java.lang.Object
+{
+  public void <init>(android.content.Context);
+  public int getIndex(long);
+  public long getBoundary(int);
+  public java.lang.String getLabel(int);
+  public static final int DAY_COUNT;
+}
+public interface android.webkit.DownloadListener
+{
+  public abstract void onDownloadStart(java.lang.String, java.lang.String, java.lang.String, java.lang.String, long);
+}
+public class android.webkit.GeolocationPermissions
+  extends java.lang.Object
+{
+  public static android.webkit.GeolocationPermissions getInstance();
+  public void allow(java.lang.String);
+  public void clear(java.lang.String);
+  public void clearAll();
+  public void getAllowed(java.lang.String, android.webkit.ValueCallback);
+  public void getOrigins(android.webkit.ValueCallback);
+}
+public interface android.webkit.GeolocationPermissions$Callback
+{
+  public abstract void invoke(java.lang.String, boolean, boolean);
+}
+public class android.webkit.HttpAuthHandler
+  extends android.os.Handler
+{
+  public boolean useHttpAuthUsernamePassword();
+  public void cancel();
+  public void proceed(java.lang.String, java.lang.String);
+}
+public interface android.webkit.JavascriptInterface
+  extends java.lang.annotation.Annotation
+{
+}
+public class android.webkit.JsPromptResult
+  extends android.webkit.JsResult
+{
+  public void confirm(java.lang.String);
+}
+public class android.webkit.JsResult
+  extends java.lang.Object
+{
+  public final void cancel();
+  public final void confirm();
+}
+public class android.webkit.MimeTypeMap
+  extends java.lang.Object
+{
+  public static android.webkit.MimeTypeMap getSingleton();
+  public static java.lang.String getFileExtensionFromUrl(java.lang.String);
+  public boolean hasExtension(java.lang.String);
+  public boolean hasMimeType(java.lang.String);
+  public java.lang.String getExtensionFromMimeType(java.lang.String);
+  public java.lang.String getMimeTypeFromExtension(java.lang.String);
+}
+public abstract class android.webkit.PermissionRequest
+  extends java.lang.Object
+{
+  public void <init>();
+  public abstract void deny();
+  public abstract void grant(java.lang.String[]);
+  public abstract android.net.Uri getOrigin();
+  public abstract java.lang.String[] getResources();
+  public static final java.lang.String RESOURCE_AUDIO_CAPTURE;
+  public static final java.lang.String RESOURCE_MIDI_SYSEX;
+  public static final java.lang.String RESOURCE_PROTECTED_MEDIA_ID;
+  public static final java.lang.String RESOURCE_VIDEO_CAPTURE;
+}
+public interface android.webkit.PluginStub
+{
+  public abstract android.view.View getEmbeddedView(int, android.content.Context);
+  public abstract android.view.View getFullScreenView(int, android.content.Context);
+}
+public class android.webkit.ServiceWorkerClient
+  extends java.lang.Object
+{
+  public void <init>();
+  public android.webkit.WebResourceResponse shouldInterceptRequest(android.webkit.WebResourceRequest);
+}
+public abstract class android.webkit.ServiceWorkerController
+  extends java.lang.Object
+{
+  public static android.webkit.ServiceWorkerController getInstance();
+  public void <init>();
+  public abstract void setServiceWorkerClient(android.webkit.ServiceWorkerClient);
+  public abstract android.webkit.ServiceWorkerWebSettings getServiceWorkerWebSettings();
+}
+public abstract class android.webkit.ServiceWorkerWebSettings
+  extends java.lang.Object
+{
+  public void <init>();
+  public abstract boolean getAllowContentAccess();
+  public abstract boolean getAllowFileAccess();
+  public abstract boolean getBlockNetworkLoads();
+  public abstract int getCacheMode();
+  public abstract void setAllowContentAccess(boolean);
+  public abstract void setAllowFileAccess(boolean);
+  public abstract void setBlockNetworkLoads(boolean);
+  public abstract void setCacheMode(int);
+}
+public class android.webkit.SslErrorHandler
+  extends android.os.Handler
+{
+  public void cancel();
+  public void proceed();
+}
+public final class android.webkit.URLUtil
+  extends java.lang.Object
+{
+  public static final java.lang.String guessFileName(java.lang.String, java.lang.String, java.lang.String);
+  public static boolean isAboutUrl(java.lang.String);
+  public static boolean isAssetUrl(java.lang.String);
+  public static boolean isContentUrl(java.lang.String);
+  public static boolean isCookielessProxyUrl(java.lang.String);
+  public static boolean isDataUrl(java.lang.String);
+  public static boolean isFileUrl(java.lang.String);
+  public static boolean isHttpUrl(java.lang.String);
+  public static boolean isHttpsUrl(java.lang.String);
+  public static boolean isJavaScriptUrl(java.lang.String);
+  public static boolean isNetworkUrl(java.lang.String);
+  public static boolean isValidUrl(java.lang.String);
+  public static byte[] decode(byte[])  throws java.lang.IllegalArgumentException;
+  public static java.lang.String composeSearchUrl(java.lang.String, java.lang.String, java.lang.String);
+  public static java.lang.String guessUrl(java.lang.String);
+  public static java.lang.String stripAnchor(java.lang.String);
+  public void <init>();
+}
+public interface android.webkit.ValueCallback
+{
+  public abstract void onReceiveValue(java.lang.Object);
+}
+public abstract class android.webkit.WebBackForwardList
+  extends java.lang.Object
+  implements java.lang.Cloneable, java.io.Serializable
+{
+  public void <init>();
+  public abstract int getCurrentIndex();
+  public abstract int getSize();
+  public abstract android.webkit.WebHistoryItem getCurrentItem();
+  public abstract android.webkit.WebHistoryItem getItemAtIndex(int);
+  protected abstract android.webkit.WebBackForwardList clone();
+  protected java.lang.Object clone()  throws java.lang.CloneNotSupportedException;
+}
+public class android.webkit.WebChromeClient
+  extends java.lang.Object
+{
+  public void <init>();
+  public boolean onConsoleMessage(android.webkit.ConsoleMessage);
+  public boolean onCreateWindow(android.webkit.WebView, boolean, boolean, android.os.Message);
+  public boolean onJsAlert(android.webkit.WebView, java.lang.String, java.lang.String, android.webkit.JsResult);
+  public boolean onJsBeforeUnload(android.webkit.WebView, java.lang.String, java.lang.String, android.webkit.JsResult);
+  public boolean onJsConfirm(android.webkit.WebView, java.lang.String, java.lang.String, android.webkit.JsResult);
+  public boolean onJsPrompt(android.webkit.WebView, java.lang.String, java.lang.String, java.lang.String, android.webkit.JsPromptResult);
+  public boolean onJsTimeout();
+  public boolean onShowFileChooser(android.webkit.WebView, android.webkit.ValueCallback, android.webkit.WebChromeClient$FileChooserParams);
+  public void getVisitedHistory(android.webkit.ValueCallback);
+  public void onCloseWindow(android.webkit.WebView);
+  public void onConsoleMessage(java.lang.String, int, java.lang.String);
+  public void onExceededDatabaseQuota(java.lang.String, java.lang.String, long, long, long, android.webkit.WebStorage$QuotaUpdater);
+  public void onGeolocationPermissionsHidePrompt();
+  public void onGeolocationPermissionsShowPrompt(java.lang.String, android.webkit.GeolocationPermissions$Callback);
+  public void onHideCustomView();
+  public void onPermissionRequest(android.webkit.PermissionRequest);
+  public void onPermissionRequestCanceled(android.webkit.PermissionRequest);
+  public void onProgressChanged(android.webkit.WebView, int);
+  public void onReachedMaxAppCacheSize(long, long, android.webkit.WebStorage$QuotaUpdater);
+  public void onReceivedIcon(android.webkit.WebView, android.graphics.Bitmap);
+  public void onReceivedTitle(android.webkit.WebView, java.lang.String);
+  public void onReceivedTouchIconUrl(android.webkit.WebView, java.lang.String, boolean);
+  public void onRequestFocus(android.webkit.WebView);
+  public void onShowCustomView(android.view.View, android.webkit.WebChromeClient$CustomViewCallback);
+  public void onShowCustomView(android.view.View, int, android.webkit.WebChromeClient$CustomViewCallback);
+  public android.graphics.Bitmap getDefaultVideoPoster();
+  public android.view.View getVideoLoadingProgressView();
+}
+public interface android.webkit.WebChromeClient$CustomViewCallback
+{
+  public abstract void onCustomViewHidden();
+}
+public abstract class android.webkit.WebChromeClient$FileChooserParams
+  extends java.lang.Object
+{
+  public static android.net.Uri[] parseResult(int, android.content.Intent);
+  public void <init>();
+  public abstract boolean isCaptureEnabled();
+  public abstract int getMode();
+  public abstract android.content.Intent createIntent();
+  public abstract java.lang.CharSequence getTitle();
+  public abstract java.lang.String getFilenameHint();
+  public abstract java.lang.String[] getAcceptTypes();
+  public static final int MODE_OPEN;
+  public static final int MODE_OPEN_MULTIPLE;
+  public static final int MODE_SAVE;
+}
+public abstract class android.webkit.WebHistoryItem
+  extends java.lang.Object
+  implements java.lang.Cloneable
+{
+  public void <init>();
+  public abstract android.graphics.Bitmap getFavicon();
+  public abstract java.lang.String getOriginalUrl();
+  public abstract java.lang.String getTitle();
+  public abstract java.lang.String getUrl();
+  protected abstract android.webkit.WebHistoryItem clone();
+  protected java.lang.Object clone()  throws java.lang.CloneNotSupportedException;
+}
+public abstract class android.webkit.WebIconDatabase
+  extends java.lang.Object
+{
+  public static android.webkit.WebIconDatabase getInstance();
+  public void <init>();
+  public abstract void close();
+  public abstract void open(java.lang.String);
+  public abstract void releaseIconForPageUrl(java.lang.String);
+  public abstract void removeAllIcons();
+  public abstract void requestIconForPageUrl(java.lang.String, android.webkit.WebIconDatabase$IconListener);
+  public abstract void retainIconForPageUrl(java.lang.String);
+}
+public interface android.webkit.WebIconDatabase$IconListener
+{
+  public abstract void onReceivedIcon(java.lang.String, android.graphics.Bitmap);
+}
+public class android.webkit.WebMessage
+  extends java.lang.Object
+{
+  public void <init>(java.lang.String);
+  public void <init>(java.lang.String, android.webkit.WebMessagePort[]);
+  public android.webkit.WebMessagePort[] getPorts();
+  public java.lang.String getData();
+}
+public abstract class android.webkit.WebMessagePort
+  extends java.lang.Object
+{
+  public abstract void close();
+  public abstract void postMessage(android.webkit.WebMessage);
+  public abstract void setWebMessageCallback(android.webkit.WebMessagePort$WebMessageCallback);
+  public abstract void setWebMessageCallback(android.webkit.WebMessagePort$WebMessageCallback, android.os.Handler);
+}
+public abstract class android.webkit.WebMessagePort$WebMessageCallback
+  extends java.lang.Object
+{
+  public void <init>();
+  public void onMessage(android.webkit.WebMessagePort, android.webkit.WebMessage);
+}
+public abstract class android.webkit.WebResourceError
+  extends java.lang.Object
+{
+  public abstract int getErrorCode();
+  public abstract java.lang.CharSequence getDescription();
+}
+public interface android.webkit.WebResourceRequest
+{
+  public abstract boolean hasGesture();
+  public abstract boolean isForMainFrame();
+  public abstract boolean isRedirect();
+  public abstract android.net.Uri getUrl();
+  public abstract java.lang.String getMethod();
+  public abstract java.util.Map getRequestHeaders();
+}
+public class android.webkit.WebResourceResponse
+  extends java.lang.Object
+{
+  public void <init>(java.lang.String, java.lang.String, int, java.lang.String, java.util.Map, java.io.InputStream);
+  public void <init>(java.lang.String, java.lang.String, java.io.InputStream);
+  public int getStatusCode();
+  public void setData(java.io.InputStream);
+  public void setEncoding(java.lang.String);
+  public void setMimeType(java.lang.String);
+  public void setResponseHeaders(java.util.Map);
+  public void setStatusCodeAndReasonPhrase(int, java.lang.String);
+  public java.io.InputStream getData();
+  public java.lang.String getEncoding();
+  public java.lang.String getMimeType();
+  public java.lang.String getReasonPhrase();
+  public java.util.Map getResponseHeaders();
+}
+public abstract class android.webkit.WebSettings
+  extends java.lang.Object
+{
+  public static java.lang.String getDefaultUserAgent(android.content.Context);
+  public void <init>();
+  public abstract boolean enableSmoothTransition();
+  public abstract boolean getAllowContentAccess();
+  public abstract boolean getAllowFileAccess();
+  public abstract boolean getAllowFileAccessFromFileURLs();
+  public abstract boolean getAllowUniversalAccessFromFileURLs();
+  public abstract boolean getBlockNetworkImage();
+  public abstract boolean getBlockNetworkLoads();
+  public abstract boolean getBuiltInZoomControls();
+  public abstract boolean getDatabaseEnabled();
+  public abstract boolean getDisplayZoomControls();
+  public abstract boolean getDomStorageEnabled();
+  public abstract boolean getJavaScriptCanOpenWindowsAutomatically();
+  public abstract boolean getJavaScriptEnabled();
+  public abstract boolean getLightTouchEnabled();
+  public abstract boolean getLoadWithOverviewMode();
+  public abstract boolean getLoadsImagesAutomatically();
+  public abstract boolean getMediaPlaybackRequiresUserGesture();
+  public abstract boolean getOffscreenPreRaster();
+  public abstract boolean getSaveFormData();
+  public abstract boolean getSavePassword();
+  public abstract boolean getUseWideViewPort();
+  public abstract boolean supportMultipleWindows();
+  public abstract boolean supportZoom();
+  public abstract int getCacheMode();
+  public abstract int getDefaultFixedFontSize();
+  public abstract int getDefaultFontSize();
+  public abstract int getDisabledActionModeMenuItems();
+  public abstract int getMinimumFontSize();
+  public abstract int getMinimumLogicalFontSize();
+  public abstract int getMixedContentMode();
+  public abstract int getTextZoom();
+  public abstract void setAllowContentAccess(boolean);
+  public abstract void setAllowFileAccess(boolean);
+  public abstract void setAllowFileAccessFromFileURLs(boolean);
+  public abstract void setAllowUniversalAccessFromFileURLs(boolean);
+  public abstract void setAppCacheEnabled(boolean);
+  public abstract void setAppCacheMaxSize(long);
+  public abstract void setAppCachePath(java.lang.String);
+  public abstract void setBlockNetworkImage(boolean);
+  public abstract void setBlockNetworkLoads(boolean);
+  public abstract void setBuiltInZoomControls(boolean);
+  public abstract void setCacheMode(int);
+  public abstract void setCursiveFontFamily(java.lang.String);
+  public abstract void setDatabaseEnabled(boolean);
+  public abstract void setDatabasePath(java.lang.String);
+  public abstract void setDefaultFixedFontSize(int);
+  public abstract void setDefaultFontSize(int);
+  public abstract void setDefaultTextEncodingName(java.lang.String);
+  public abstract void setDefaultZoom(android.webkit.WebSettings$ZoomDensity);
+  public abstract void setDisabledActionModeMenuItems(int);
+  public abstract void setDisplayZoomControls(boolean);
+  public abstract void setDomStorageEnabled(boolean);
+  public abstract void setEnableSmoothTransition(boolean);
+  public abstract void setFantasyFontFamily(java.lang.String);
+  public abstract void setFixedFontFamily(java.lang.String);
+  public abstract void setGeolocationDatabasePath(java.lang.String);
+  public abstract void setGeolocationEnabled(boolean);
+  public abstract void setJavaScriptCanOpenWindowsAutomatically(boolean);
+  public abstract void setJavaScriptEnabled(boolean);
+  public abstract void setLayoutAlgorithm(android.webkit.WebSettings$LayoutAlgorithm);
+  public abstract void setLightTouchEnabled(boolean);
+  public abstract void setLoadWithOverviewMode(boolean);
+  public abstract void setLoadsImagesAutomatically(boolean);
+  public abstract void setMediaPlaybackRequiresUserGesture(boolean);
+  public abstract void setMinimumFontSize(int);
+  public abstract void setMinimumLogicalFontSize(int);
+  public abstract void setMixedContentMode(int);
+  public abstract void setNeedInitialFocus(boolean);
+  public abstract void setOffscreenPreRaster(boolean);
+  public abstract void setPluginState(android.webkit.WebSettings$PluginState);
+  public abstract void setRenderPriority(android.webkit.WebSettings$RenderPriority);
+  public abstract void setSansSerifFontFamily(java.lang.String);
+  public abstract void setSaveFormData(boolean);
+  public abstract void setSavePassword(boolean);
+  public abstract void setSerifFontFamily(java.lang.String);
+  public abstract void setStandardFontFamily(java.lang.String);
+  public abstract void setSupportMultipleWindows(boolean);
+  public abstract void setSupportZoom(boolean);
+  public abstract void setTextZoom(int);
+  public abstract void setUseWideViewPort(boolean);
+  public abstract void setUserAgentString(java.lang.String);
+  public abstract android.webkit.WebSettings$LayoutAlgorithm getLayoutAlgorithm();
+  public abstract android.webkit.WebSettings$PluginState getPluginState();
+  public abstract android.webkit.WebSettings$ZoomDensity getDefaultZoom();
+  public abstract java.lang.String getCursiveFontFamily();
+  public abstract java.lang.String getDatabasePath();
+  public abstract java.lang.String getDefaultTextEncodingName();
+  public abstract java.lang.String getFantasyFontFamily();
+  public abstract java.lang.String getFixedFontFamily();
+  public abstract java.lang.String getSansSerifFontFamily();
+  public abstract java.lang.String getSerifFontFamily();
+  public abstract java.lang.String getStandardFontFamily();
+  public abstract java.lang.String getUserAgentString();
+  public void setTextSize(android.webkit.WebSettings$TextSize);
+  public android.webkit.WebSettings$TextSize getTextSize();
+  public static final int LOAD_CACHE_ELSE_NETWORK;
+  public static final int LOAD_CACHE_ONLY;
+  public static final int LOAD_DEFAULT;
+  public static final int LOAD_NORMAL;
+  public static final int LOAD_NO_CACHE;
+  public static final int MENU_ITEM_NONE;
+  public static final int MENU_ITEM_PROCESS_TEXT;
+  public static final int MENU_ITEM_SHARE;
+  public static final int MENU_ITEM_WEB_SEARCH;
+  public static final int MIXED_CONTENT_ALWAYS_ALLOW;
+  public static final int MIXED_CONTENT_COMPATIBILITY_MODE;
+  public static final int MIXED_CONTENT_NEVER_ALLOW;
+}
+public final class android.webkit.WebSettings$LayoutAlgorithm
+  extends java.lang.Enum
+{
+  public static android.webkit.WebSettings$LayoutAlgorithm valueOf(java.lang.String);
+  public static android.webkit.WebSettings$LayoutAlgorithm[] values();
+  public static final android.webkit.WebSettings$LayoutAlgorithm NARROW_COLUMNS;
+  public static final android.webkit.WebSettings$LayoutAlgorithm NORMAL;
+  public static final android.webkit.WebSettings$LayoutAlgorithm SINGLE_COLUMN;
+  public static final android.webkit.WebSettings$LayoutAlgorithm TEXT_AUTOSIZING;
+}
+public final class android.webkit.WebSettings$PluginState
+  extends java.lang.Enum
+{
+  public static android.webkit.WebSettings$PluginState valueOf(java.lang.String);
+  public static android.webkit.WebSettings$PluginState[] values();
+  public static final android.webkit.WebSettings$PluginState OFF;
+  public static final android.webkit.WebSettings$PluginState ON;
+  public static final android.webkit.WebSettings$PluginState ON_DEMAND;
+}
+public final class android.webkit.WebSettings$RenderPriority
+  extends java.lang.Enum
+{
+  public static android.webkit.WebSettings$RenderPriority valueOf(java.lang.String);
+  public static android.webkit.WebSettings$RenderPriority[] values();
+  public static final android.webkit.WebSettings$RenderPriority HIGH;
+  public static final android.webkit.WebSettings$RenderPriority LOW;
+  public static final android.webkit.WebSettings$RenderPriority NORMAL;
+}
+public final class android.webkit.WebSettings$TextSize
+  extends java.lang.Enum
+{
+  public static android.webkit.WebSettings$TextSize valueOf(java.lang.String);
+  public static android.webkit.WebSettings$TextSize[] values();
+  public static final android.webkit.WebSettings$TextSize LARGER;
+  public static final android.webkit.WebSettings$TextSize LARGEST;
+  public static final android.webkit.WebSettings$TextSize NORMAL;
+  public static final android.webkit.WebSettings$TextSize SMALLER;
+  public static final android.webkit.WebSettings$TextSize SMALLEST;
+}
+public final class android.webkit.WebSettings$ZoomDensity
+  extends java.lang.Enum
+{
+  public static android.webkit.WebSettings$ZoomDensity valueOf(java.lang.String);
+  public static android.webkit.WebSettings$ZoomDensity[] values();
+  public static final android.webkit.WebSettings$ZoomDensity CLOSE;
+  public static final android.webkit.WebSettings$ZoomDensity FAR;
+  public static final android.webkit.WebSettings$ZoomDensity MEDIUM;
+}
+public class android.webkit.WebStorage
+  extends java.lang.Object
+{
+  public static android.webkit.WebStorage getInstance();
+  public void deleteAllData();
+  public void deleteOrigin(java.lang.String);
+  public void getOrigins(android.webkit.ValueCallback);
+  public void getQuotaForOrigin(java.lang.String, android.webkit.ValueCallback);
+  public void getUsageForOrigin(java.lang.String, android.webkit.ValueCallback);
+  public void setQuotaForOrigin(java.lang.String, long);
+}
+public class android.webkit.WebStorage$Origin
+  extends java.lang.Object
+{
+  public long getQuota();
+  public long getUsage();
+  public java.lang.String getOrigin();
+}
+public interface android.webkit.WebStorage$QuotaUpdater
+{
+  public abstract void updateQuota(long);
+}
+public class android.webkit.WebView
+  extends android.widget.AbsoluteLayout
+  implements android.view.ViewTreeObserver$OnGlobalFocusChangeListener, android.view.ViewGroup$OnHierarchyChangeListener
+{
+  public static void clearClientCertPreferences(java.lang.Runnable);
+  public static void enableSlowWholeDocumentDraw();
+  public static void setWebContentsDebuggingEnabled(boolean);
+  public static java.lang.String findAddress(java.lang.String);
+  public void <init>(android.content.Context);
+  public void <init>(android.content.Context, android.util.AttributeSet);
+  public void <init>(android.content.Context, android.util.AttributeSet, int);
+  public void <init>(android.content.Context, android.util.AttributeSet, int, boolean);
+  public void <init>(android.content.Context, android.util.AttributeSet, int, int);
+  public boolean canGoBack();
+  public boolean canGoBackOrForward(int);
+  public boolean canGoForward();
+  public boolean canZoomIn();
+  public boolean canZoomOut();
+  public boolean dispatchKeyEvent(android.view.KeyEvent);
+  public boolean isPrivateBrowsingEnabled();
+  public boolean onDragEvent(android.view.DragEvent);
+  public boolean onGenericMotionEvent(android.view.MotionEvent);
+  public boolean onHoverEvent(android.view.MotionEvent);
+  public boolean onKeyDown(int, android.view.KeyEvent);
+  public boolean onKeyMultiple(int, int, android.view.KeyEvent);
+  public boolean onKeyUp(int, android.view.KeyEvent);
+  public boolean onTouchEvent(android.view.MotionEvent);
+  public boolean onTrackballEvent(android.view.MotionEvent);
+  public boolean overlayHorizontalScrollbar();
+  public boolean overlayVerticalScrollbar();
+  public boolean pageDown(boolean);
+  public boolean pageUp(boolean);
+  public boolean performLongClick();
+  public boolean requestChildRectangleOnScreen(android.view.View, android.graphics.Rect, boolean);
+  public boolean requestFocus(int, android.graphics.Rect);
+  public boolean shouldDelayChildPressedState();
+  public boolean showFindDialog(java.lang.String, boolean);
+  public boolean zoomIn();
+  public boolean zoomOut();
+  public float getScale();
+  public int findAll(java.lang.String);
+  public int getContentHeight();
+  public int getProgress();
+  public void addJavascriptInterface(java.lang.Object, java.lang.String);
+  public void clearCache(boolean);
+  public void clearFormData();
+  public void clearHistory();
+  public void clearMatches();
+  public void clearSslPreferences();
+  public void clearView();
+  public void computeScroll();
+  public void destroy();
+  public void documentHasImages(android.os.Message);
+  public void evaluateJavascript(java.lang.String, android.webkit.ValueCallback);
+  public void findAllAsync(java.lang.String);
+  public void findNext(boolean);
+  public void flingScroll(int, int);
+  public void freeMemory();
+  public void goBack();
+  public void goBackOrForward(int);
+  public void goForward();
+  public void invokeZoomPicker();
+  public void loadData(java.lang.String, java.lang.String, java.lang.String);
+  public void loadDataWithBaseURL(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String);
+  public void loadUrl(java.lang.String);
+  public void loadUrl(java.lang.String, java.util.Map);
+  public void onChildViewAdded(android.view.View, android.view.View);
+  public void onChildViewRemoved(android.view.View, android.view.View);
+  public void onFinishTemporaryDetach();
+  public void onGlobalFocusChanged(android.view.View, android.view.View);
+  public void onPause();
+  public void onProvideVirtualStructure(android.view.ViewStructure);
+  public void onResume();
+  public void onStartTemporaryDetach();
+  public void onWindowFocusChanged(boolean);
+  public void pauseTimers();
+  public void postUrl(java.lang.String, byte[]);
+  public void postVisualStateCallback(long, android.webkit.WebView$VisualStateCallback);
+  public void postWebMessage(android.webkit.WebMessage, android.net.Uri);
+  public void reload();
+  public void removeJavascriptInterface(java.lang.String);
+  public void requestFocusNodeHref(android.os.Message);
+  public void requestImageRef(android.os.Message);
+  public void resumeTimers();
+  public void savePassword(java.lang.String, java.lang.String, java.lang.String);
+  public void saveWebArchive(java.lang.String);
+  public void saveWebArchive(java.lang.String, boolean, android.webkit.ValueCallback);
+  public void setBackgroundColor(int);
+  public void setCertificate(android.net.http.SslCertificate);
+  public void setDownloadListener(android.webkit.DownloadListener);
+  public void setFindListener(android.webkit.WebView$FindListener);
+  public void setHorizontalScrollbarOverlay(boolean);
+  public void setHttpAuthUsernamePassword(java.lang.String, java.lang.String, java.lang.String, java.lang.String);
+  public void setInitialScale(int);
+  public void setLayerType(int, android.graphics.Paint);
+  public void setLayoutParams(android.view.ViewGroup$LayoutParams);
+  public void setMapTrackballToArrowKeys(boolean);
+  public void setNetworkAvailable(boolean);
+  public void setOverScrollMode(int);
+  public void setPictureListener(android.webkit.WebView$PictureListener);
+  public void setScrollBarStyle(int);
+  public void setVerticalScrollbarOverlay(boolean);
+  public void setWebChromeClient(android.webkit.WebChromeClient);
+  public void setWebViewClient(android.webkit.WebViewClient);
+  public void stopLoading();
+  public void zoomBy(float);
+  public android.graphics.Bitmap getFavicon();
+  public android.graphics.Picture capturePicture();
+  public android.net.http.SslCertificate getCertificate();
+  public android.os.Handler getHandler();
+  public android.print.PrintDocumentAdapter createPrintDocumentAdapter();
+  public android.print.PrintDocumentAdapter createPrintDocumentAdapter(java.lang.String);
+  public android.view.View findFocus();
+  public android.view.accessibility.AccessibilityNodeProvider getAccessibilityNodeProvider();
+  public android.view.inputmethod.InputConnection onCreateInputConnection(android.view.inputmethod.EditorInfo);
+  public android.webkit.WebBackForwardList copyBackForwardList();
+  public android.webkit.WebBackForwardList restoreState(android.os.Bundle);
+  public android.webkit.WebBackForwardList saveState(android.os.Bundle);
+  public android.webkit.WebMessagePort[] createWebMessageChannel();
+  public android.webkit.WebSettings getSettings();
+  public android.webkit.WebView$HitTestResult getHitTestResult();
+  public java.lang.CharSequence getAccessibilityClassName();
+  public java.lang.String getOriginalUrl();
+  public java.lang.String getTitle();
+  public java.lang.String getUrl();
+  public java.lang.String[] getHttpAuthUsernamePassword(java.lang.String, java.lang.String);
+  protected int computeHorizontalScrollOffset();
+  protected int computeHorizontalScrollRange();
+  protected int computeVerticalScrollExtent();
+  protected int computeVerticalScrollOffset();
+  protected int computeVerticalScrollRange();
+  protected void dispatchDraw(android.graphics.Canvas);
+  protected void onAttachedToWindow();
+  protected void onConfigurationChanged(android.content.res.Configuration);
+  protected void onDraw(android.graphics.Canvas);
+  protected void onFocusChanged(boolean, int, android.graphics.Rect);
+  protected void onMeasure(int, int);
+  protected void onOverScrolled(int, int, boolean, boolean);
+  protected void onScrollChanged(int, int, int, int);
+  protected void onSizeChanged(int, int, int, int);
+  protected void onVisibilityChanged(android.view.View, int);
+  protected void onWindowVisibilityChanged(int);
+  public static final java.lang.String SCHEME_GEO;
+  public static final java.lang.String SCHEME_MAILTO;
+  public static final java.lang.String SCHEME_TEL;
+}
+public interface android.webkit.WebView$FindListener
+{
+  public abstract void onFindResultReceived(int, int, boolean);
+}
+public class android.webkit.WebView$HitTestResult
+  extends java.lang.Object
+{
+  public int getType();
+  public java.lang.String getExtra();
+  public static final int ANCHOR_TYPE;
+  public static final int EDIT_TEXT_TYPE;
+  public static final int EMAIL_TYPE;
+  public static final int GEO_TYPE;
+  public static final int IMAGE_ANCHOR_TYPE;
+  public static final int IMAGE_TYPE;
+  public static final int PHONE_TYPE;
+  public static final int SRC_ANCHOR_TYPE;
+  public static final int SRC_IMAGE_ANCHOR_TYPE;
+  public static final int UNKNOWN_TYPE;
+}
+public interface android.webkit.WebView$PictureListener
+{
+  public abstract void onNewPicture(android.webkit.WebView, android.graphics.Picture);
+}
+public abstract class android.webkit.WebView$VisualStateCallback
+  extends java.lang.Object
+{
+  public void <init>();
+  public abstract void onComplete(long);
+}
+public class android.webkit.WebView$WebViewTransport
+  extends java.lang.Object
+{
+  public void <init>(android.webkit.WebView);
+  public void setWebView(android.webkit.WebView);
+  public android.webkit.WebView getWebView();
+}
+public class android.webkit.WebViewClient
+  extends java.lang.Object
+{
+  public void <init>();
+  public boolean shouldOverrideKeyEvent(android.webkit.WebView, android.view.KeyEvent);
+  public boolean shouldOverrideUrlLoading(android.webkit.WebView, android.webkit.WebResourceRequest);
+  public boolean shouldOverrideUrlLoading(android.webkit.WebView, java.lang.String);
+  public void doUpdateVisitedHistory(android.webkit.WebView, java.lang.String, boolean);
+  public void onFormResubmission(android.webkit.WebView, android.os.Message, android.os.Message);
+  public void onLoadResource(android.webkit.WebView, java.lang.String);
+  public void onPageCommitVisible(android.webkit.WebView, java.lang.String);
+  public void onPageFinished(android.webkit.WebView, java.lang.String);
+  public void onPageStarted(android.webkit.WebView, java.lang.String, android.graphics.Bitmap);
+  public void onReceivedClientCertRequest(android.webkit.WebView, android.webkit.ClientCertRequest);
+  public void onReceivedError(android.webkit.WebView, android.webkit.WebResourceRequest, android.webkit.WebResourceError);
+  public void onReceivedError(android.webkit.WebView, int, java.lang.String, java.lang.String);
+  public void onReceivedHttpAuthRequest(android.webkit.WebView, android.webkit.HttpAuthHandler, java.lang.String, java.lang.String);
+  public void onReceivedHttpError(android.webkit.WebView, android.webkit.WebResourceRequest, android.webkit.WebResourceResponse);
+  public void onReceivedLoginRequest(android.webkit.WebView, java.lang.String, java.lang.String, java.lang.String);
+  public void onReceivedSslError(android.webkit.WebView, android.webkit.SslErrorHandler, android.net.http.SslError);
+  public void onScaleChanged(android.webkit.WebView, float, float);
+  public void onTooManyRedirects(android.webkit.WebView, android.os.Message, android.os.Message);
+  public void onUnhandledKeyEvent(android.webkit.WebView, android.view.KeyEvent);
+  public android.webkit.WebResourceResponse shouldInterceptRequest(android.webkit.WebView, android.webkit.WebResourceRequest);
+  public android.webkit.WebResourceResponse shouldInterceptRequest(android.webkit.WebView, java.lang.String);
+  public static final int ERROR_AUTHENTICATION;
+  public static final int ERROR_BAD_URL;
+  public static final int ERROR_CONNECT;
+  public static final int ERROR_FAILED_SSL_HANDSHAKE;
+  public static final int ERROR_FILE;
+  public static final int ERROR_FILE_NOT_FOUND;
+  public static final int ERROR_HOST_LOOKUP;
+  public static final int ERROR_IO;
+  public static final int ERROR_PROXY_AUTHENTICATION;
+  public static final int ERROR_REDIRECT_LOOP;
+  public static final int ERROR_TIMEOUT;
+  public static final int ERROR_TOO_MANY_REQUESTS;
+  public static final int ERROR_UNKNOWN;
+  public static final int ERROR_UNSUPPORTED_AUTH_SCHEME;
+  public static final int ERROR_UNSUPPORTED_SCHEME;
+}
+public abstract class android.webkit.WebViewDatabase
+  extends java.lang.Object
+{
+  public static android.webkit.WebViewDatabase getInstance(android.content.Context);
+  public void <init>();
+  public abstract boolean hasFormData();
+  public abstract boolean hasHttpAuthUsernamePassword();
+  public abstract boolean hasUsernamePassword();
+  public abstract void clearFormData();
+  public abstract void clearHttpAuthUsernamePassword();
+  public abstract void clearUsernamePassword();
+}
+public class android.webkit.WebViewFragment
+  extends android.app.Fragment
+{
+  public void <init>();
+  public void onDestroy();
+  public void onDestroyView();
+  public void onPause();
+  public void onResume();
+  public android.view.View onCreateView(android.view.LayoutInflater, android.view.ViewGroup, android.os.Bundle);
+  public android.webkit.WebView getWebView();
+}
+public class org.json.JSONArray
+  extends java.lang.Object
+{
+  public void <init>();
+  public void <init>(java.lang.Object)  throws org.json.JSONException;
+  public void <init>(java.lang.String)  throws org.json.JSONException;
+  public void <init>(java.util.Collection);
+  public void <init>(org.json.JSONTokener)  throws org.json.JSONException;
+  public boolean equals(java.lang.Object);
+  public boolean getBoolean(int)  throws org.json.JSONException;
+  public boolean isNull(int);
+  public boolean optBoolean(int);
+  public boolean optBoolean(int, boolean);
+  public double getDouble(int)  throws org.json.JSONException;
+  public double optDouble(int);
+  public double optDouble(int, double);
+  public int getInt(int)  throws org.json.JSONException;
+  public int hashCode();
+  public int length();
+  public int optInt(int);
+  public int optInt(int, int);
+  public long getLong(int)  throws org.json.JSONException;
+  public long optLong(int);
+  public long optLong(int, long);
+  public java.lang.Object get(int)  throws org.json.JSONException;
+  public java.lang.Object opt(int);
+  public java.lang.Object remove(int);
+  public java.lang.String getString(int)  throws org.json.JSONException;
+  public java.lang.String join(java.lang.String)  throws org.json.JSONException;
+  public java.lang.String optString(int);
+  public java.lang.String optString(int, java.lang.String);
+  public java.lang.String toString();
+  public java.lang.String toString(int)  throws org.json.JSONException;
+  public org.json.JSONArray getJSONArray(int)  throws org.json.JSONException;
+  public org.json.JSONArray optJSONArray(int);
+  public org.json.JSONArray put(boolean);
+  public org.json.JSONArray put(double)  throws org.json.JSONException;
+  public org.json.JSONArray put(int);
+  public org.json.JSONArray put(int, boolean)  throws org.json.JSONException;
+  public org.json.JSONArray put(int, double)  throws org.json.JSONException;
+  public org.json.JSONArray put(int, int)  throws org.json.JSONException;
+  public org.json.JSONArray put(int, java.lang.Object)  throws org.json.JSONException;
+  public org.json.JSONArray put(int, long)  throws org.json.JSONException;
+  public org.json.JSONArray put(java.lang.Object);
+  public org.json.JSONArray put(long);
+  public org.json.JSONObject getJSONObject(int)  throws org.json.JSONException;
+  public org.json.JSONObject optJSONObject(int);
+  public org.json.JSONObject toJSONObject(org.json.JSONArray)  throws org.json.JSONException;
+}
+public class org.json.JSONException
+  extends java.lang.Exception
+{
+  public void <init>(java.lang.String);
+}
+public class org.json.JSONObject
+  extends java.lang.Object
+{
+  public static java.lang.Object wrap(java.lang.Object);
+  public static java.lang.String numberToString(java.lang.Number)  throws org.json.JSONException;
+  public static java.lang.String quote(java.lang.String);
+  public void <init>();
+  public void <init>(java.lang.String)  throws org.json.JSONException;
+  public void <init>(java.util.Map);
+  public void <init>(org.json.JSONObject, java.lang.String[])  throws org.json.JSONException;
+  public void <init>(org.json.JSONTokener)  throws org.json.JSONException;
+  public boolean getBoolean(java.lang.String)  throws org.json.JSONException;
+  public boolean has(java.lang.String);
+  public boolean isNull(java.lang.String);
+  public boolean optBoolean(java.lang.String);
+  public boolean optBoolean(java.lang.String, boolean);
+  public double getDouble(java.lang.String)  throws org.json.JSONException;
+  public double optDouble(java.lang.String);
+  public double optDouble(java.lang.String, double);
+  public int getInt(java.lang.String)  throws org.json.JSONException;
+  public int length();
+  public int optInt(java.lang.String);
+  public int optInt(java.lang.String, int);
+  public long getLong(java.lang.String)  throws org.json.JSONException;
+  public long optLong(java.lang.String);
+  public long optLong(java.lang.String, long);
+  public java.lang.Object get(java.lang.String)  throws org.json.JSONException;
+  public java.lang.Object opt(java.lang.String);
+  public java.lang.Object remove(java.lang.String);
+  public java.lang.String getString(java.lang.String)  throws org.json.JSONException;
+  public java.lang.String optString(java.lang.String);
+  public java.lang.String optString(java.lang.String, java.lang.String);
+  public java.lang.String toString();
+  public java.lang.String toString(int)  throws org.json.JSONException;
+  public java.util.Iterator keys();
+  public org.json.JSONArray getJSONArray(java.lang.String)  throws org.json.JSONException;
+  public org.json.JSONArray names();
+  public org.json.JSONArray optJSONArray(java.lang.String);
+  public org.json.JSONArray toJSONArray(org.json.JSONArray)  throws org.json.JSONException;
+  public org.json.JSONObject accumulate(java.lang.String, java.lang.Object)  throws org.json.JSONException;
+  public org.json.JSONObject getJSONObject(java.lang.String)  throws org.json.JSONException;
+  public org.json.JSONObject optJSONObject(java.lang.String);
+  public org.json.JSONObject put(java.lang.String, boolean)  throws org.json.JSONException;
+  public org.json.JSONObject put(java.lang.String, double)  throws org.json.JSONException;
+  public org.json.JSONObject put(java.lang.String, int)  throws org.json.JSONException;
+  public org.json.JSONObject put(java.lang.String, java.lang.Object)  throws org.json.JSONException;
+  public org.json.JSONObject put(java.lang.String, long)  throws org.json.JSONException;
+  public org.json.JSONObject putOpt(java.lang.String, java.lang.Object)  throws org.json.JSONException;
+  public static final java.lang.Object NULL;
+}
+public class org.json.JSONStringer
+  extends java.lang.Object
+{
+  public void <init>();
+  public java.lang.String toString();
+  public org.json.JSONStringer array()  throws org.json.JSONException;
+  public org.json.JSONStringer endArray()  throws org.json.JSONException;
+  public org.json.JSONStringer endObject()  throws org.json.JSONException;
+  public org.json.JSONStringer key(java.lang.String)  throws org.json.JSONException;
+  public org.json.JSONStringer object()  throws org.json.JSONException;
+  public org.json.JSONStringer value(boolean)  throws org.json.JSONException;
+  public org.json.JSONStringer value(double)  throws org.json.JSONException;
+  public org.json.JSONStringer value(java.lang.Object)  throws org.json.JSONException;
+  public org.json.JSONStringer value(long)  throws org.json.JSONException;
+}
+public class org.json.JSONTokener
+  extends java.lang.Object
+{
+  public static int dehexchar(char);
+  public void <init>(java.lang.String);
+  public boolean more();
+  public char next();
+  public char next(char)  throws org.json.JSONException;
+  public char nextClean()  throws org.json.JSONException;
+  public char skipTo(char);
+  public void back();
+  public void skipPast(java.lang.String);
+  public java.lang.Object nextValue()  throws org.json.JSONException;
+  public java.lang.String next(int)  throws org.json.JSONException;
+  public java.lang.String nextString(char)  throws org.json.JSONException;
+  public java.lang.String nextTo(char);
+  public java.lang.String nextTo(java.lang.String);
+  public java.lang.String toString();
+  public org.json.JSONException syntaxError(java.lang.String);
+}
+
