@@ -115,11 +115,7 @@ public class ClassSig implements Comparable<ClassSig> {
             } else {
                 writer.print("  implements ");
             }
-            StringBuilder namesline = new StringBuilder();
-            for (String interfacename : interfacenames) {
-                namesline.append(interfacename).append(", ");
-            }
-            writer.println(namesline.substring(0, namesline.length() - 2));
+            writer.println(String.join(", ", interfacenames));
         }
         writer.println("{");
 
